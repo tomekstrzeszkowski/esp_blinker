@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include <blinker/blinker.h>
-#include <job/job.h>
+#include <blinker.h>
+#include <job.h>
 
 #define LIGHT_CHANNEL 4
 

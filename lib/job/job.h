@@ -1,6 +1,6 @@
 #ifndef JOB_H
 #define JOB_H
-#include <blinker/blinker.h>
+#include <blinker.h>
 
 class Job {
     public:
