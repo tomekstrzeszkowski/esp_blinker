@@ -7,6 +7,7 @@ class Job {
         Job(Blinker &blinker) : blinker(blinker), isDayMode(true) {}
         void setup();
         void tick();
+        void switchDayMode();
     protected:
         Blinker &blinker;
         bool isDayMode;

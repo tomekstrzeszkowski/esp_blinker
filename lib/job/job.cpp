@@ -31,3 +31,7 @@ void Job::tick() {
         this->blinker.switchLight(!this->isDayMode);
     }
 }
+
+void Job::switchDayMode() {
+    this->isDayMode = !this->isDayMode;
+}
