@@ -22,3 +22,4 @@ TBD
 
 In devices & services add integration and search for MQTT. Add default integration.
 In Apps, install app `Mosquitto broker`. Then go to config and add entry to logins.
+Add new entry under MQTT and configure device, use `esp32/gpio4/set` and switch component.

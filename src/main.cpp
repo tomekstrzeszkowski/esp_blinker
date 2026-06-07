@@ -24,8 +24,8 @@ Connectivity connectivity(
 
 void setup() {
   connectivity.setup();
-  job.setup();
   button.setup();
+  job.setup();
 }
 
 void loop() {

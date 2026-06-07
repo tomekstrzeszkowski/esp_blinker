@@ -45,21 +45,15 @@ void Connectivity::publishState(bool on) {
 void Connectivity::connectWifi() {
     WiFi.mode(WIFI_AP);
     WiFi.begin(ssid, pass);
-    Serial.print("Connecting WiFi");
     wl_status_t stat = WiFi.status();
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);
-        Serial.print(".");
     }
-    Serial.println(" connected: " + WiFi.localIP().toString());
 }
 
  
 
 void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length) {
-    String msg;
-    for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
-
     if (String(topic) == "esp32/gpio4/set") {
         instance->onGpio4Command();
         instance->publishState(instance->getState());
@@ -72,14 +66,8 @@ void Connectivity::connectMqtt() {
     if (WiFi.status() != WL_CONNECTED) {
         connectWifi();
     }
-
-    Serial.print("Connecting MQTT...");
     if (mqtt.connect("esp32-s3-blinker", mqttUser, mqttPass,
                      "esp32/gpio4/state", 0, true, "OFFLINE")) {
-        Serial.println("connected");
         mqtt.subscribe("esp32/gpio4/set");
-        publishState(false);
-    } else {
-        Serial.printf("failed, rc=%d\n", mqtt.state());
     }
 }
