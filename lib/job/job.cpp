@@ -8,7 +8,6 @@ void Job::setup() {
     int blinkTimes = 10;
     bool state = this->isDayMode;
     unsigned long lastToggle = millis();
-
     while (blinkTimes > 0) {
         if (millis() - lastToggle >= 500) {
             lastToggle = millis();
@@ -22,12 +21,6 @@ void Job::setup() {
 }
 
 void Job::tick() {
-    if (this->manualOverride) {
-        this->switchDayMode();
-        this->manualOverride = false;
-        return;
-    }
-
     std::time_t nowT = time(nullptr);
     std::tm *now = localtime(&nowT);
 
@@ -40,8 +33,4 @@ void Job::tick() {
 
 void Job::switchDayMode() {
     this->isDayMode = !this->isDayMode;
-}
-
-void Job::setManualOverride(bool active) {
-    this->manualOverride = active;
 }

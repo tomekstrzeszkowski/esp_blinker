@@ -8,11 +8,8 @@ class Job {
         void setup();
         void tick();
         void switchDayMode();
-        void setManualOverride(bool active);
     protected:
         Blinker &blinker;
         bool isDayMode = true;
-        bool manualOverride = false;
-        bool manualState = false;
 };
 #endif

@@ -15,7 +15,7 @@ Job job{blinker};
 Connectivity connectivity(
     WIFI_SSID, WIFI_PASS, MQTT_HOST, MQTT_USER, MQTT_PASS,
     []() {
-        job.setManualOverride(true);
+        job.switchDayMode();
     },
     []() -> bool {
       return digitalRead(LIGHT_CHANNEL) == LOW;
