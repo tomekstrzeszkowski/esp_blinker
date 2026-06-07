@@ -4,12 +4,15 @@
 
 class Job {
     public:
-        Job(Blinker &blinker) : blinker(blinker), isDayMode(true) {}
+        Job(Blinker &blinker) : blinker(blinker) {}
         void setup();
         void tick();
         void switchDayMode();
+        void setManualOverride(bool active, bool state);
     protected:
         Blinker &blinker;
-        bool isDayMode;
+        bool isDayMode = true;
+        bool manualOverride = false;
+        bool manualState = false;
 };
 #endif

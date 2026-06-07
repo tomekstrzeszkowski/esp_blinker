@@ -70,3 +70,5 @@ Testing/
 
 .pio/*
 .vscode/*
+
+secrets.ini

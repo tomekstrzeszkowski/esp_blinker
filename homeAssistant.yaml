@@ -1,0 +1,42 @@
+output:
+  - platform: gpio
+    pin: GPIO4          # change to your actual output pin
+    id: blinker_output
+
+# --- The main switch exposed to Home Assistant ---
+switch:
+  - platform: output
+    name: "Eye Break Active"
+    id: blinker_switch
+    output: blinker_output
+    restore_mode: RESTORE_DEFAULT_OFF
+
+# --- Physical button ---
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO5
+      mode:
+        input: true
+        pullup: true
+      inverted: true      # active-low with internal pullup
+    name: "Physical Button"
+    id: physical_button
+    filters:
+      - delayed_on: 20ms   # debounce
+      - delayed_off: 20ms
+    on_press:
+      then:
+        - switch.toggle: blinker_switch
+
+# --- 20-20-20 timer: blink every 20 min for 20 sec ---
+time:
+  - platform: homeassistant
+    id: ha_time
+
+interval:
+  - interval: 20min
+    then:
+      - switch.turn_on: blinker_switch
+      - delay: 20s
+      - switch.turn_off: blinker_switch

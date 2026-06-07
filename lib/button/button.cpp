@@ -8,7 +8,7 @@ void Button::setup() {
   pinMode(this->buttonChannel, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(this->buttonChannel), [](){
     buttonInstance->handlePress();
-  }, FALLING);
+  }, RISING);
 }
 
 void IRAM_ATTR Button::handlePress() {

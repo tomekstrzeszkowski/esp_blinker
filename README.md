@@ -15,3 +15,10 @@ Circuit diagram:
 Channel connections (GPIO, Board):
 
 TBD
+
+# MQTT
+
+## Home assistant
+
+In devices & services add integration and search for MQTT. Add default integration.
+In Apps, install app `Mosquitto broker`. Then go to config and add entry to logins.
