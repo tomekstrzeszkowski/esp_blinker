@@ -32,6 +32,10 @@ void Blinker::tick() {
 }
 
 void Blinker::switchLight(bool on) {
+    if (this->currentState == on) {
+        return;
+    }
+    this->currentState = on;
     if (on) {
         digitalWrite(this->lightChannel, HIGH);
     } else {
