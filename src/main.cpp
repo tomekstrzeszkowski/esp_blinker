@@ -14,8 +14,11 @@ Job job{blinker};
 
 Connectivity connectivity(
     WIFI_SSID, WIFI_PASS, MQTT_HOST, MQTT_USER, MQTT_PASS,
-    [](bool on) {
-        job.setManualOverride(true, on);
+    []() {
+        job.setManualOverride(true);
+    },
+    []() -> bool {
+      return digitalRead(LIGHT_CHANNEL) == LOW;
     }
 );
 
@@ -31,5 +34,6 @@ void loop() {
   if (button.isPressed) {
     button.isPressed = false;
     job.switchDayMode();
+    connectivity.publishState(connectivity.getState());
   } 
 }

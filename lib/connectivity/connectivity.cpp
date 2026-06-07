@@ -3,12 +3,18 @@
 
 Connectivity* Connectivity::instance = nullptr;
 
-Connectivity::Connectivity(const char* ssid, const char* pass,
-                           const char* mqttHost, const char* mqttUser, const char* mqttPass,
-                           std::function<void(bool)> onGpio4Command)
+Connectivity::Connectivity(
+    const char* ssid, 
+    const char* pass,          
+    const char* mqttHost, 
+    const char* mqttUser, 
+    const char* mqttPass,                   
+    std::function<void()> onGpio4Command, 
+    std::function<bool()> getState
+)
     : ssid(ssid), pass(pass), mqttHost(mqttHost),
       mqttUser(mqttUser), mqttPass(mqttPass),
-      onGpio4Command(onGpio4Command), mqtt(wifiClient)
+      onGpio4Command(onGpio4Command), getState(getState), mqtt(wifiClient)
 {
     instance = this;
 }
@@ -55,11 +61,8 @@ void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length)
     for (unsigned int i = 0; i < length; i++) msg += (char)payload[i];
 
     if (String(topic) == "esp32/gpio4/set") {
-        bool on = (msg == "ON");
-        if (instance->onGpio4Command) {
-            instance->onGpio4Command(on);
-        }
-        instance->publishState(on);
+        instance->onGpio4Command();
+        instance->publishState(instance->getState());
     }
 }
 void Connectivity::connectMqtt() {

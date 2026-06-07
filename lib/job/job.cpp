@@ -23,7 +23,7 @@ void Job::setup() {
 
 void Job::tick() {
     if (this->manualOverride) {
-        this->switchDayMode(); // todo: switch should read current day mode in HA
+        this->switchDayMode();
         this->manualOverride = false;
         return;
     }
@@ -42,7 +42,6 @@ void Job::switchDayMode() {
     this->isDayMode = !this->isDayMode;
 }
 
-void Job::setManualOverride(bool active, bool state) {
+void Job::setManualOverride(bool active) {
     this->manualOverride = active;
-    this->manualState = state;
 }
