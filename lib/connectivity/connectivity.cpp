@@ -45,9 +45,10 @@ void Connectivity::publishState(bool on) {
 void Connectivity::connectWifi() {
     WiFi.mode(WIFI_AP);
     WiFi.begin(ssid, pass);
-    wl_status_t stat = WiFi.status();
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
+    unsigned short attempt = 5;
+    while (WiFi.status() != WL_CONNECTED && attempt > 0) {
+        delay(1000);
+        attempt--;
     }
 }
 
@@ -62,9 +63,8 @@ void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length)
 void Connectivity::connectMqtt() {
     if (mqtt.connected()) return;
 
-    // Ensure WiFi is up first
     if (WiFi.status() != WL_CONNECTED) {
-        connectWifi();
+        return;
     }
     if (mqtt.connect("esp32-s3-blinker", mqttUser, mqttPass,
                      "esp32/gpio4/state", 0, true, "OFFLINE")) {
