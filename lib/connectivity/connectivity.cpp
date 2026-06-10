@@ -39,11 +39,12 @@ void Connectivity::tick() {
 }
 
 void Connectivity::publishState(bool on) {
+    //todo: rename gpio4 to generic
     mqtt.publish("esp32/gpio4/state", on ? "ON" : "OFF", true);  // retained
 }
 
 void Connectivity::connectWifi() {
-    WiFi.mode(WIFI_AP);
+    WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, pass);
     unsigned short attempt = 5;
     while (WiFi.status() != WL_CONNECTED && attempt > 0) {

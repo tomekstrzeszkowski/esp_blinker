@@ -1,6 +1,13 @@
 #pragma once
-#include <WiFi.h>
 #include <PubSubClient.h>
+
+#ifdef ESP8266
+  #include <ESP8266WiFi.h>
+#elif defined(ESP32)
+  #include <WiFi.h>
+#else
+  #error "Unknown platform — add your target here"
+#endif
 
 class Connectivity {
 public:
