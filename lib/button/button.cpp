@@ -3,6 +3,7 @@
 
 static Button *buttonInstance = nullptr;
 
+//lambda doesn't play well with ESP 8266 so declare a static wrapper function instead
 void IRAM_ATTR handlePressWrapper() {
   if (buttonInstance) {
     buttonInstance->handlePress();
