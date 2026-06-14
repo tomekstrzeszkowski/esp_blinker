@@ -13,7 +13,7 @@ class Connectivity {
 public:
     Connectivity(const char* ssid, const char* pass,
                  const char* mqttHost, const char* mqttUser, const char* mqttPass,
-                 std::function<void()> onGpio4Command, 
+                 std::function<void()> onGpioCommand, 
                  std::function<bool()> getState
                 );
     void setup();
@@ -28,7 +28,7 @@ private:
     const char* mqttHost;
     const char* mqttUser;
     const char* mqttPass;
-    std::function<void()> onGpio4Command;
+    std::function<void()> onGpioCommand;
 
     WiFiClient wifiClient;
     PubSubClient mqtt;

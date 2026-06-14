@@ -1,6 +1,9 @@
 #include "connectivity.h"
 #include <Arduino.h>
 
+#define STATE_CHANNEL "esp32/gpio4/state"
+#define SET_CHANNEL "esp32/gpio4/set"
+
 Connectivity* Connectivity::instance = nullptr;
 
 Connectivity::Connectivity(
@@ -9,12 +12,12 @@ Connectivity::Connectivity(
     const char* mqttHost, 
     const char* mqttUser, 
     const char* mqttPass,                   
-    std::function<void()> onGpio4Command, 
+    std::function<void()> onGpioCommand, 
     std::function<bool()> getState
 )
     : ssid(ssid), pass(pass), mqttHost(mqttHost),
       mqttUser(mqttUser), mqttPass(mqttPass),
-      onGpio4Command(onGpio4Command), getState(getState), mqtt(wifiClient)
+      onGpioCommand(onGpioCommand), getState(getState), mqtt(wifiClient)
 {
     instance = this;
 }
@@ -39,8 +42,7 @@ void Connectivity::tick() {
 }
 
 void Connectivity::publishState(bool on) {
-    //todo: rename gpio4 to generic
-    mqtt.publish("esp32/gpio4/state", on ? "ON" : "OFF", true);  // retained
+    mqtt.publish(STATE_CHANNEL, on ? "ON" : "OFF", true);  // retained
 }
 
 void Connectivity::connectWifi() {
@@ -49,8 +51,8 @@ void Connectivity::connectWifi() {
 }
 
 void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length) {
-    if (String(topic) == "esp32/gpio4/set") {
-        instance->onGpio4Command();
+    if (String(topic) == SET_CHANNEL) {
+        instance->onGpioCommand();
         instance->publishState(instance->getState());
     }
 }
@@ -61,8 +63,8 @@ void Connectivity::connectMqtt() {
         return;
     }
     if (mqtt.connect("esp32-s3-blinker", mqttUser, mqttPass,
-                     "esp32/gpio4/state", 0, true, "OFFLINE")) {
-        mqtt.subscribe("esp32/gpio4/set");
+                     STATE_CHANNEL, 0, true, "OFFLINE")) {
+        mqtt.subscribe(SET_CHANNEL);
     }
 }
 

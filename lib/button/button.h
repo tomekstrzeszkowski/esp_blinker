@@ -6,7 +6,7 @@ class Button {
   public:
     Button(int buttonChannel): buttonChannel(buttonChannel) {};
     void setup();
-    void IRAM_ATTR handlePress();
+    void handlePress();
     bool isPressed = false;
 
   protected:
