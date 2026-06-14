@@ -20,6 +20,7 @@ public:
     void tick();
     void publishState(bool on);
     std::function<bool()> getState;
+    void waitForWifi();
 
 private:
     const char* ssid;

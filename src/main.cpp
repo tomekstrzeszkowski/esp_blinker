@@ -26,6 +26,8 @@ void setup() {
   connectivity.setup();
   button.setup();
   job.setup();
+  connectivity.waitForWifi();
+  job.welcomeBlink();
 }
 
 void loop() {
@@ -36,4 +38,5 @@ void loop() {
     job.switchDayMode();
     connectivity.publishState(connectivity.getState());
   } 
+  yield();
 }

@@ -3,21 +3,6 @@
 
 void Job::setup() {
     this->blinker.setup();
-
-    //test blink
-    int blinkTimes = 10;
-    bool state = this->isDayMode;
-    unsigned long lastToggle = millis();
-    while (blinkTimes > 0) {
-        if (millis() - lastToggle >= 500) {
-            lastToggle = millis();
-            this->blinker.switchLight(state);
-            state = !state;
-            blinkTimes--;
-        }
-    }
-
-    this->blinker.switchLight(!this->isDayMode);
 }
 
 void Job::tick() {
@@ -33,4 +18,20 @@ void Job::tick() {
 
 void Job::switchDayMode() {
     this->isDayMode = !this->isDayMode;
+}
+
+void Job::welcomeBlink() {
+    int blinkTimes = 5;
+    bool state = this->isDayMode;
+    unsigned long lastToggle = millis();
+    while (blinkTimes > 0) {
+        if (millis() - lastToggle >= 500) {
+            lastToggle = millis();
+            this->blinker.switchLight(state);
+            state = !state;
+            blinkTimes--;
+        }
+    }
+
+    this->blinker.switchLight(!this->isDayMode);
 }

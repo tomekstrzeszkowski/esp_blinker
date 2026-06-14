@@ -4,10 +4,10 @@
 
 class Button {
   public:
-    Button(int buttonChannel): buttonChannel(buttonChannel), isPressed(false) {};
+    Button(int buttonChannel): buttonChannel(buttonChannel) {};
     void setup();
     void IRAM_ATTR handlePress();
-    bool isPressed;
+    bool isPressed = false;
 
   protected:
     int buttonChannel;

@@ -8,6 +8,7 @@ class Job {
         void setup();
         void tick();
         void switchDayMode();
+        void welcomeBlink();
     protected:
         Blinker &blinker;
         bool isDayMode = true;

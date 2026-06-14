@@ -46,14 +46,7 @@ void Connectivity::publishState(bool on) {
 void Connectivity::connectWifi() {
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, pass);
-    unsigned short attempt = 5;
-    while (WiFi.status() != WL_CONNECTED && attempt > 0) {
-        delay(1000);
-        attempt--;
-    }
 }
-
- 
 
 void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length) {
     if (String(topic) == "esp32/gpio4/set") {
@@ -70,5 +63,13 @@ void Connectivity::connectMqtt() {
     if (mqtt.connect("esp32-s3-blinker", mqttUser, mqttPass,
                      "esp32/gpio4/state", 0, true, "OFFLINE")) {
         mqtt.subscribe("esp32/gpio4/set");
+    }
+}
+
+void Connectivity::waitForWifi() {
+    unsigned short attempt = 5;
+    while (WiFi.status() != WL_CONNECTED && attempt > 0) {
+        delay(1000);
+        attempt--;
     }
 }

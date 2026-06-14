@@ -17,6 +17,6 @@ class Blinker {
     std::chrono::milliseconds offDuration;
     std::chrono::steady_clock::time_point current;
     bool cycle;
-    bool currentState;  // protect from unnecessary digitalWrite calls
+    bool currentState = false;  // protect from unnecessary digitalWrite calls
 };
 #endif
