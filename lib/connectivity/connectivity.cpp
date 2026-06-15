@@ -1,9 +1,6 @@
 #include "connectivity.h"
 #include <Arduino.h>
 
-#define STATE_CHANNEL "esp32/gpio4/state"
-#define SET_CHANNEL "esp32/gpio4/set"
-
 Connectivity* Connectivity::instance = nullptr;
 
 Connectivity::Connectivity(
@@ -42,7 +39,7 @@ void Connectivity::tick() {
 }
 
 void Connectivity::publishState(bool on) {
-    mqtt.publish(STATE_CHANNEL, on ? "ON" : "OFF", true);  // retained
+    mqtt.publish(MQTT_CHANNEL_STATE, on ? "ON" : "OFF", true);  // retained
 }
 
 void Connectivity::connectWifi() {
@@ -51,7 +48,7 @@ void Connectivity::connectWifi() {
 }
 
 void Connectivity::mqttCallback(char* topic, byte* payload, unsigned int length) {
-    if (String(topic) == SET_CHANNEL) {
+    if (String(topic) == MQTT_CHANNEL_SET) {
         instance->onGpioCommand();
         instance->publishState(instance->getState());
     }
@@ -62,9 +59,10 @@ void Connectivity::connectMqtt() {
     if (WiFi.status() != WL_CONNECTED) {
         return;
     }
-    if (mqtt.connect("esp32-s3-blinker", mqttUser, mqttPass,
-                     STATE_CHANNEL, 0, true, "OFFLINE")) {
-        mqtt.subscribe(SET_CHANNEL);
+    if (
+        mqtt.connect(MQTT_CLIENT_NAME, mqttUser, mqttPass, MQTT_CHANNEL_STATE, 0, true, "OFFLINE")
+    ) {
+        mqtt.subscribe(MQTT_CHANNEL_SET);
     }
 }
 

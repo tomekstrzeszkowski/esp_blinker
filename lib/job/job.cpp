@@ -1,5 +1,5 @@
 #include "job.h"
-#include <HardwareSerial.h>
+#include <Arduino.h>
 
 void Job::setup() {
     this->blinker.setup();
@@ -21,7 +21,7 @@ void Job::switchDayMode() {
 }
 
 void Job::welcomeBlink() {
-    int blinkTimes = 5;
+    int blinkTimes = 10;
     bool state = this->isDayMode;
     unsigned long lastToggle = millis();
     while (blinkTimes > 0) {
@@ -31,6 +31,7 @@ void Job::welcomeBlink() {
             state = !state;
             blinkTimes--;
         }
+        yield();  //WDT feed to prevent reset
     }
 
     this->blinker.switchLight(!this->isDayMode);
