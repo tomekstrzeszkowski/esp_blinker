@@ -9,7 +9,7 @@ void Job::tick() {
     std::time_t nowT = time(nullptr);
     std::tm *now = localtime(&nowT);
 
-    if(now->tm_min % 15 == 0 && now->tm_sec <= 25) {
+    if(now->tm_min % 20 == 0 && now->tm_sec <= 20) {
         this->blinker.tick();
     } else {
         this->blinker.switchLight(!this->isDayMode);

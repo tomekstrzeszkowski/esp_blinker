@@ -1,17 +1,65 @@
+#...default config
+
 output:
   - platform: gpio
-    pin: GPIO4          # change to your actual output pin
+    pin: GPIO2
     id: blinker_output
 
-# --- The main switch exposed to Home Assistant ---
-switch:
-  - platform: output
-    name: "Eye Break Active"
-    id: blinker_switch
-    output: blinker_output
-    restore_mode: RESTORE_DEFAULT_OFF
+# --- Tracks what the LED should return to after a blink cycle ---
+globals:
+  - id: led_state
+    type: bool
+    restore_value: yes
+    initial_value: 'false'
 
-# --- Physical button ---
+# --- Blink script: 1s on / 0.3s off, ~20s total, then restore LED state ---
+script:
+  - id: blink_eyes
+    mode: restart
+    then:
+      - repeat:
+          count: 15
+          then:
+            - output.turn_on: blinker_output
+            - delay: 1s
+            - output.turn_off: blinker_output
+            - delay: 300ms
+      - if:
+          condition:
+            lambda: 'return id(led_state);'
+          then:
+            - output.turn_on: blinker_output
+          else:
+            - output.turn_off: blinker_output
+
+# --- Eye Break Active: momentary trigger button ---
+button:
+  - platform: template
+    name: "Eye Break Active"
+    id: eye_break_button
+    on_press:
+      then:
+        - script.execute: blink_eyes
+
+switch:
+  # --- Light: plain steady on/off, independent of blinking ---
+  - platform: template
+    name: "Light"
+    id: light_switch
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    turn_on_action:
+      - globals.set:
+          id: led_state
+          value: 'true'
+      - output.turn_on: blinker_output
+    turn_off_action:
+      - globals.set:
+          id: led_state
+          value: 'false'
+      - output.turn_off: blinker_output
+
+# --- Physical buttons ---
 binary_sensor:
   - platform: gpio
     pin:
@@ -19,24 +67,63 @@ binary_sensor:
       mode:
         input: true
         pullup: true
-      inverted: true      # active-low with internal pullup
+      inverted: true
     name: "Physical Button"
     id: physical_button
     filters:
-      - delayed_on: 20ms   # debounce
+      - delayed_on: 20ms
       - delayed_off: 20ms
     on_press:
       then:
-        - switch.toggle: blinker_switch
+        - script.execute: blink_eyes
 
-# --- 20-20-20 timer: blink every 20 min for 20 sec ---
+  - platform: gpio
+    pin:
+      number: GPIO4        # <-- change to a free GPIO on your board if needed
+      mode:
+        input: true
+        pullup: true
+      inverted: true
+    name: "LED Button"
+    id: led_button
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+    on_press:
+      then:
+        - switch.toggle: light_switch
+
+# --- Time sync from Home Assistant ---
 time:
   - platform: homeassistant
     id: ha_time
+    on_time_sync:
+      # Runs once when ESP first gets the correct time from HA (e.g. on boot)
+      # so the LED is correct immediately, not just at the next 7:00/19:00 boundary
+      then:
+        - lambda: |-
+            auto t = id(ha_time).now();
+            if (t.is_valid()) {
+              if (t.hour >= 7 && t.hour < 19) {
+                id(light_switch).turn_off();
+              } else {
+                id(light_switch).turn_on();
+              }
+            }
+    on_time:
+      - seconds: 0
+        minutes: 0
+        hours: 7
+        then:
+          - switch.turn_off: light_switch
+      - seconds: 0
+        minutes: 0
+        hours: 19
+        then:
+          - switch.turn_on: light_switch
 
+# --- 20-20-20 timer: blink every 20 min for ~20s, regardless of LED state ---
 interval:
   - interval: 20min
     then:
-      - switch.turn_on: blinker_switch
-      - delay: 20s
-      - switch.turn_off: blinker_switch
+      - script.execute: blink_eyes
