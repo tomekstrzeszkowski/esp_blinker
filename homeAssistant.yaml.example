@@ -1,5 +1,4 @@
 #...default config
-
 output:
   - platform: gpio
     pin: GPIO2
@@ -7,10 +6,15 @@ output:
 
 # --- Tracks what the LED should return to after a blink cycle ---
 globals:
-  - id: led_state
+  - id: light_state
     type: bool
     restore_value: yes
     initial_value: 'false'
+
+# --- Sun position calculation (Gliwice, PL coordinates) ---
+sun:
+  latitude: 50.2945°
+  longitude: 18.6714°
 
 # --- Blink script: 1s on / 0.3s off, ~20s total, then restore LED state ---
 script:
@@ -26,7 +30,7 @@ script:
             - delay: 300ms
       - if:
           condition:
-            lambda: 'return id(led_state);'
+            lambda: 'return id(light_state);'
           then:
             - output.turn_on: blinker_output
           else:
@@ -42,20 +46,20 @@ button:
         - script.execute: blink_eyes
 
 switch:
-  # --- Light: plain steady on/off, independent of blinking ---
+  # --- light: plain steady on/off, independent of blinking ---
   - platform: template
-    name: "Light"
+    name: "light"
     id: light_switch
     optimistic: true
     restore_mode: RESTORE_DEFAULT_OFF
     turn_on_action:
       - globals.set:
-          id: led_state
+          id: light_state
           value: 'true'
       - output.turn_on: blinker_output
     turn_off_action:
       - globals.set:
-          id: led_state
+          id: light_state
           value: 'false'
       - output.turn_off: blinker_output
 
@@ -98,19 +102,17 @@ time:
   - platform: homeassistant
     id: ha_time
     on_time_sync:
-      # Runs once when ESP first gets the correct time from HA (e.g. on boot)
-      # so the LED is correct immediately, not just at the next 7:00/19:00 boundary
+      # Set LED correctly the moment we get valid time (e.g. right after boot)
       then:
-        - lambda: |-
-            auto t = id(ha_time).now();
-            if (t.is_valid()) {
-              if (t.hour >= 7 && t.hour < 19) {
-                id(light_switch).turn_off();
-              } else {
-                id(light_switch).turn_on();
-              }
-            }
+        - if:
+            condition:
+              sun.is_above_horizon:
+            then:
+              - switch.turn_off: light_switch
+            else:
+              - switch.turn_on: light_switch
     on_time:
+      # Fallback in case sun data is ever unavailable - fixed 7:00/19:00
       - seconds: 0
         minutes: 0
         hours: 7
@@ -122,8 +124,18 @@ time:
         then:
           - switch.turn_on: light_switch
 
-# --- 20-20-20 timer: blink every 20 min for ~20s, regardless of LED state ---
+# --- 20-20-20 blink timer + periodic daylight re-check ---
 interval:
   - interval: 20min
     then:
       - script.execute: blink_eyes
+
+  - interval: 5min
+    then:
+      - if:
+          condition:
+            sun.is_above_horizon:
+          then:
+            - switch.turn_off: light_switch
+          else:
+            - switch.turn_on: light_switch
