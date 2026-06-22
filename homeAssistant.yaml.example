@@ -11,10 +11,10 @@ globals:
     restore_value: yes
     initial_value: 'false'
 
-# --- Sun position calculation (Gliwice, PL coordinates) ---
+# --- Sun position calculation (correct your location) ---
 sun:
-  latitude: 50.2945°
-  longitude: 18.6714°
+  latitude: 20.05°
+  longitude: 20.05°
 
 # --- Blink script: 1s on / 0.3s off, ~20s total, then restore LED state ---
 script:
