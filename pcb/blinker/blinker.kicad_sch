@@ -761,14 +761,14 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "CustomRelay:Hi-Link"
+		(symbol "Converter_ACDC:HLK-5M03"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U"
-				(at 0 0 0)
+				(at 0 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -777,8 +777,8 @@
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "HLK-5M03"
+				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -787,7 +787,29 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Converter_ACDC:Converter_ACDC_Hi-Link_HLK-5Mxx"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%975W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%915W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V2.8.pdf"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Compact AC/DC board mount power module 5W, 3.3V 1.5A"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -798,7 +820,7 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "ki_keywords" "AC/DC module power supply"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -809,7 +831,7 @@
 					)
 				)
 			)
-			(property "Description" ""
+			(property "ki_fp_filters" "Converter*ACDC*Hi?Link*HLK?5M*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -820,10 +842,166 @@
 					)
 				)
 			)
-			(symbol "Hi-Link_0_1"
+			(symbol "HLK-5M03_0_1"
 				(rectangle
-					(start -1.27 6.35)
-					(end 11.43 -6.35)
+					(start -7.62 3.81)
+					(end 7.62 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.334 -0.635) (xy -2.794 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -4.064 0.635)
+					(mid -4.699 0.2495)
+					(end -5.334 0.635)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -4.064 0.635)
+					(mid -3.429 1.0072)
+					(end -2.794 0.635)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 3.81) (xy 0 3.175)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0 1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -3.175)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 0.635) (xy 3.302 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 -0.635) (xy 5.334 -0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0.635) (xy 4.318 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.826 0.635) (xy 5.334 0.635)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -833,19 +1011,11 @@
 					)
 				)
 			)
-			(symbol "Hi-Link_1_1"
-				(text "Hi-Link"
-					(at 6.604 -0.254 0)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(pin output line
-					(at -3.81 3.81 0)
+			(symbol "HLK-5M03_1_1"
+				(pin power_in line
+					(at -10.16 2.54 0)
 					(length 2.54)
-					(name "+Vo"
+					(name "AC/L"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -860,10 +1030,10 @@
 						)
 					)
 				)
-				(pin output line
-					(at -3.81 1.27 0)
+				(pin power_in line
+					(at -10.16 -2.54 0)
 					(length 2.54)
-					(name "-Vo"
+					(name "AC/N"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -878,10 +1048,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at -3.81 -1.27 0)
+				(pin power_out line
+					(at 10.16 -2.54 180)
 					(length 2.54)
-					(name "AC"
+					(name "-Vout"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -896,10 +1066,10 @@
 						)
 					)
 				)
-				(pin input line
-					(at -3.81 -3.81 0)
+				(pin power_out line
+					(at 10.16 2.54 180)
 					(length 2.54)
-					(name "AC"
+					(name "+Vout"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2446,18 +2616,6 @@
 		)
 	)
 	(junction
-		(at 46.99 92.71)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "001a56ee-11c7-450f-8e0c-b9f91bb2f11d")
-	)
-	(junction
-		(at 44.45 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "08511d8d-bdb3-4d8d-b6c4-2f7a7be0a059")
-	)
-	(junction
 		(at 146.05 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2474,6 +2632,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "10deab93-2bfc-4c9d-a240-baf8885365af")
+	)
+	(junction
+		(at 69.85 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "207418d1-52ce-4d90-80fd-136e81b43ba5")
 	)
 	(junction
 		(at 161.29 97.79)
@@ -2494,10 +2658,16 @@
 		(uuid "3533a2bd-90a0-4498-bc5a-dbf3fe07b85e")
 	)
 	(junction
-		(at 50.8 123.19)
+		(at 44.45 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "671dea70-4f08-4cc9-ae53-65a2c1dbf684")
+		(uuid "43ae2427-4b62-447b-b667-c794306d34c8")
+	)
+	(junction
+		(at 38.1 92.71)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6cb6874e-47ab-4ffd-9909-4ddf9990ad64")
 	)
 	(junction
 		(at 124.46 123.19)
@@ -2554,22 +2724,16 @@
 		(uuid "ac81f05b-4812-4c92-91b3-5e7a715dfc0a")
 	)
 	(junction
-		(at 54.61 90.17)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b7e58337-116c-4cca-8215-37194ac82c6f")
-	)
-	(junction
-		(at 54.61 67.31)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "eae193f2-36d2-4770-ba6b-6a3dd52ea282")
-	)
-	(junction
 		(at 76.2 67.31)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f2b7b584-075c-47d2-a57e-6218288ac548")
+	)
+	(junction
+		(at 69.85 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fcfd7496-f115-4df7-82b8-8c8086d252c0")
 	)
 	(wire
 		(pts
@@ -2590,6 +2754,16 @@
 			(type default)
 		)
 		(uuid "01bc8fbb-6f8c-42d6-90b5-fdba99d10ad0")
+	)
+	(wire
+		(pts
+			(xy 38.1 85.09) (xy 38.1 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "06e59cee-2b32-4092-9590-67b632a9f5da")
 	)
 	(wire
 		(pts
@@ -2703,6 +2877,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 67.31) (xy 76.2 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "329bdf7b-0773-4dfa-892b-e728a3c57885")
+	)
+	(wire
+		(pts
 			(xy 124.46 123.19) (xy 132.08 123.19)
 		)
 		(stroke
@@ -2773,33 +2957,13 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 85.09) (xy 39.37 85.09)
+			(xy 33.02 85.09) (xy 38.1 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4c1e00b9-f31c-4347-948c-2c2c3dd7eba6")
-	)
-	(wire
-		(pts
-			(xy 44.45 90.17) (xy 54.61 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51290b9c-980f-452a-b089-3ae6d76b54ad")
-	)
-	(wire
-		(pts
-			(xy 46.99 92.71) (xy 54.61 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57fbf47f-bb4b-4211-8045-3fe045ab79e8")
+		(uuid "4fd2f7d0-a70e-478e-a4f3-7f772b4de20e")
 	)
 	(wire
 		(pts
@@ -2823,7 +2987,7 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 87.63) (xy 39.37 87.63)
+			(xy 41.91 87.63) (xy 33.02 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2893,6 +3057,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 71.12) (xy 69.85 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "774d494e-0b82-4e71-9195-9f951d867f37")
+	)
+	(wire
+		(pts
 			(xy 120.65 67.31) (xy 146.05 67.31)
 		)
 		(stroke
@@ -2913,6 +3087,26 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 71.12) (xy 69.85 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d668d7b-41fe-4294-8092-0aee5c1468f2")
+	)
+	(wire
+		(pts
+			(xy 69.85 95.25) (xy 69.85 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ddfdd80-7bb0-487f-bb19-ce0ed79bedeb")
+	)
+	(wire
+		(pts
 			(xy 111.76 83.82) (xy 113.03 83.82)
 		)
 		(stroke
@@ -2920,16 +3114,6 @@
 			(type default)
 		)
 		(uuid "8121e3db-5bac-4fd7-8043-d37e1c258fce")
-	)
-	(wire
-		(pts
-			(xy 54.61 67.31) (xy 54.61 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81bf2256-5834-493b-8081-faf58fd7031d")
 	)
 	(wire
 		(pts
@@ -3003,16 +3187,6 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 85.09) (xy 46.99 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f99c238-6967-47bf-bebe-c991e539fb82")
-	)
-	(wire
-		(pts
 			(xy 119.38 119.38) (xy 119.38 123.19)
 		)
 		(stroke
@@ -3043,7 +3217,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 92.71) (xy 46.99 92.71)
+			(xy 33.02 92.71) (xy 38.1 92.71)
 		)
 		(stroke
 			(width 0)
@@ -3103,7 +3277,7 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 90.17) (xy 44.45 90.17)
+			(xy 33.02 90.17) (xy 44.45 90.17)
 		)
 		(stroke
 			(width 0)
@@ -3133,17 +3307,7 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 87.63) (xy 50.8 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "af81efc9-4ec4-4304-9133-09323fd070fe")
-	)
-	(wire
-		(pts
-			(xy 46.99 123.19) (xy 50.8 123.19)
+			(xy 46.99 123.19) (xy 69.85 123.19)
 		)
 		(stroke
 			(width 0)
@@ -3160,6 +3324,16 @@
 			(type default)
 		)
 		(uuid "b4e59edd-aaf4-43a0-8e02-772b46765547")
+	)
+	(wire
+		(pts
+			(xy 67.31 90.17) (xy 69.85 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b565ee98-60f1-4b93-b43c-cfad51ffe6c0")
 	)
 	(wire
 		(pts
@@ -3180,6 +3354,16 @@
 			(type default)
 		)
 		(uuid "b6e214f8-0b69-45ce-bf83-2c15a4c18b30")
+	)
+	(wire
+		(pts
+			(xy 44.45 90.17) (xy 46.99 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfa13ce2-2e3a-462e-a583-85c12fed12f2")
 	)
 	(wire
 		(pts
@@ -3223,33 +3407,23 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 90.17) (xy 55.88 90.17)
+			(xy 46.99 95.25) (xy 38.1 95.25)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c5b6cb44-e765-4a8d-b12c-ca8192500f8e")
+		(uuid "d70a9651-a0ae-4389-b4ab-245fb74f73fb")
 	)
 	(wire
 		(pts
-			(xy 54.61 67.31) (xy 76.2 67.31)
+			(xy 69.85 123.19) (xy 96.52 123.19)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ca9e50fe-bf94-4254-8cca-0af42cc937ab")
-	)
-	(wire
-		(pts
-			(xy 50.8 87.63) (xy 50.8 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf5375ad-f608-47c4-9011-e8ac9d55605b")
+		(uuid "d8cac869-4366-4fbd-adea-99aea8cd7751")
 	)
 	(wire
 		(pts
@@ -3263,7 +3437,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 67.31) (xy 54.61 67.31)
+			(xy 62.23 71.12) (xy 69.85 71.12)
 		)
 		(stroke
 			(width 0)
@@ -3333,13 +3507,23 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 123.19) (xy 96.52 123.19)
+			(xy 38.1 95.25) (xy 38.1 92.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fef2e52e-a13f-4919-94c6-f08e146e9895")
+		(uuid "f5139999-8410-4dac-8d09-16fb4dab8c63")
+	)
+	(wire
+		(pts
+			(xy 67.31 95.25) (xy 69.85 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9d98f45-ba20-4f85-a600-3cb1d2f9b0d1")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3600,7 +3784,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Screw_Terminal_01x04")
-		(at 34.29 90.17 180)
+		(at 27.94 90.17 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3611,7 +3795,7 @@
 		(fields_autoplaced yes)
 		(uuid "2a808bbe-6566-4c70-937f-1e5753ef99a1")
 		(property "Reference" "J3"
-			(at 34.29 78.74 0)
+			(at 27.94 78.74 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3621,7 +3805,7 @@
 			)
 		)
 		(property "Value" "Screw_Terminal_01x04"
-			(at 34.29 81.28 0)
+			(at 27.94 81.28 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3631,7 +3815,7 @@
 			)
 		)
 		(property "Footprint" "TerminalBlock:TerminalBlock_MaiXu_MX126-5.0-04P_1x04_P5.00mm"
-			(at 34.29 90.17 0)
+			(at 27.94 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3642,7 +3826,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 34.29 90.17 0)
+			(at 27.94 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3653,7 +3837,7 @@
 			)
 		)
 		(property "Description" "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 34.29 90.17 0)
+			(at 27.94 90.17 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3679,93 +3863,6 @@
 			(project "blinker"
 				(path "/fd17230a-b4ec-476b-aec1-5c4aea2ad2cf"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "CustomRelay:Hi-Link")
-		(at 58.42 88.9 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2aa8035d-bcdb-4c43-a11d-9b2fd3355555")
-		(property "Reference" "U3"
-			(at 71.12 88.8999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ""
-			(at 58.42 88.9 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Converter_ACDC:Converter_ACDC_Hi-Link_HLK-5Mxx"
-			(at 58.42 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 58.42 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 58.42 88.9 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "817f24f3-37f5-4ec1-9f67-282621d95995")
-		)
-		(pin "3"
-			(uuid "63ef8503-3f2b-4157-b6be-bb9758b7b8fc")
-		)
-		(pin "2"
-			(uuid "7a66fc40-a2ba-4d95-a55f-c2ec695e12ee")
-		)
-		(pin "4"
-			(uuid "f45fe444-5fe3-4d26-a8a9-368b8c5c7ac8")
-		)
-		(instances
-			(project "blinker"
-				(path "/fd17230a-b4ec-476b-aec1-5c4aea2ad2cf"
-					(reference "U3")
 					(unit 1)
 				)
 			)
@@ -4132,6 +4229,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Converter_ACDC:HLK-5M03")
+		(at 57.15 92.71 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "564bcd92-8cef-43d1-aa92-a4ce6121570f")
+		(property "Reference" "U3"
+			(at 57.15 83.82 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "HLK-5M03"
+			(at 57.15 86.36 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Converter_ACDC:Converter_ACDC_Hi-Link_HLK-5Mxx"
+			(at 57.15 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "http://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%975W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%915W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V2.8.pdf"
+			(at 57.15 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Compact AC/DC board mount power module 5W, 3.3V 1.5A"
+			(at 57.15 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "55e28ef1-d6ca-44a3-a459-d757a6a9f7aa")
+		)
+		(pin "3"
+			(uuid "8073f83e-e81c-4436-b0da-01000baaf1a6")
+		)
+		(pin "4"
+			(uuid "89b6a89e-07c7-4f17-b7d8-e2ba94b7eb6b")
+		)
+		(pin "2"
+			(uuid "58d3cb13-0425-4271-b040-26660b1cf3b3")
+		)
+		(instances
+			(project "blinker"
+				(path "/fd17230a-b4ec-476b-aec1-5c4aea2ad2cf"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 120.65 72.39 180)
 		(unit 1)
@@ -4457,7 +4640,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 49.53 67.31 0)
+		(at 62.23 71.12 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4468,7 +4651,7 @@
 		(fields_autoplaced yes)
 		(uuid "952904ac-dc68-4a80-8574-61b80ed647cf")
 		(property "Reference" "#PWR01"
-			(at 49.53 71.12 0)
+			(at 62.23 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4479,7 +4662,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 49.53 62.23 0)
+			(at 62.23 66.04 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4489,7 +4672,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 49.53 67.31 0)
+			(at 62.23 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4500,7 +4683,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 49.53 67.31 0)
+			(at 62.23 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4511,7 +4694,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 49.53 67.31 0)
+			(at 62.23 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
