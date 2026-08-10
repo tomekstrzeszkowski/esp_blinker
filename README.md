@@ -8,14 +8,13 @@ This project serves as a reminder to perform these exercises by toggling your ex
 
 # Hardware 
 
-## Electrical components
- - ESP 32/8266
+## Electrical components and flashing
+ - ESP8266
 
-Circuit diagram:
-Channel connections (GPIO, Board):
+[PCB & Flashing](pcb/README.md)
 
-TBD
-
+ - TODO: ESP32
+ 
 # MQTT
 
 ## Home assistant
