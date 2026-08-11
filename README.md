@@ -12,8 +12,6 @@ This project serves as a reminder to perform these exercises by toggling your ex
  - ESP8266
 
 [PCB & Flashing](pcb/README.md)
-
- - TODO: ESP32
  
 # MQTT
 

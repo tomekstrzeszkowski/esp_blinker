@@ -25,18 +25,29 @@ Enter into flashing mode
 
 # Flashing
  - Enter flashing mode (blue LED should flash once)
- - In vs code on the bottom select esp12e, ttyUSB0
+ - Follow your preffered flashing IDE
+
+## VS Code and PlatformIO
+
+ - On the bottom bar, select esp12e, ttyUSB0
  - Click PlatformIO upload
 
 At this point you should see percentage progress and LED should flash in some intervals
 
-## esptool flashing - alternative
+## esptool and PlatformIO
 
- - Install esptool in python env
- - When you build project, firmware can be found in:
+ - Install requirements.txt, this should install esptool and PlatformIO
+ - PlatformIO builds firmware in this location
 ```
 blinker/.pio/build/esp12e/firmware.bin
 ```
+ - Build `firmware.bin` (list available targets `pio run --list-targets`)
+
+```
+pio run -e esp12e
+```
+This should produce firmware in the location as above.
+
  - Flash
 ```
 esptool --port /dev/ttyUSB0 write-flash 0x00000 blinker/.pio/build/esp12e/firmware.bin
