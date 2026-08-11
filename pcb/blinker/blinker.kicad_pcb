@@ -772,7 +772,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.00mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.00mm single row")
 		(property "Reference" "J1"
-			(at -2.5 -1.5 180)
+			(at -2.5 -2 180)
 			(layer "F.SilkS")
 			(uuid "4508cffe-4d62-4ed1-b9b4-f8d8213bdf6b")
 			(effects
@@ -3624,6 +3624,58 @@
 		(layer "Edge.Cuts")
 		(uuid "a28ddfc3-d9e6-4024-a568-41d35a9ab717")
 	)
+	(gr_text "GND"
+		(at 99.5 99.5 0)
+		(layer "F.Cu")
+		(uuid "c45f6f5f-0471-448c-b50c-5318db5c0f7f")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "3V3"
+		(at 101.5 99.5 0)
+		(layer "F.Cu")
+		(uuid "d0647341-4ddd-49b3-8f5c-1ba7ee5376d1")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "RXD"
+		(at 103.5 99.5 0)
+		(layer "F.Cu")
+		(uuid "ebdadebf-89e9-42fb-a240-64114e04fe12")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "TXD"
+		(at 106 99.5 0)
+		(layer "F.Cu")
+		(uuid "536f98fb-7548-410a-86a8-952eee479f79")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "AC 230V"
 		(at 152 77.5 90)
 		(layer "F.Cu")
@@ -3683,6 +3735,58 @@
 			(font
 				(size 1 1)
 				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "GND"
+		(at 99.5 99.5 0)
+		(layer "F.SilkS")
+		(uuid "daa3cb44-060e-4058-99d7-2cf19d19d349")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "3V3"
+		(at 101.5 99.5 0)
+		(layer "F.SilkS")
+		(uuid "f4e13e98-39cb-4406-ac1d-2059c0416124")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "RXD"
+		(at 103.5 99.5 0)
+		(layer "F.SilkS")
+		(uuid "7acbf84e-1040-4925-b356-c20417713f74")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "TXD"
+		(at 106 99.5 0)
+		(layer "F.SilkS")
+		(uuid "a0b5ecf2-36f7-4488-8f74-97becce303e5")
+		(effects
+			(font
+				(size 0.5 0.5)
+				(thickness 0.125)
+				(bold yes)
 			)
 			(justify left bottom)
 		)

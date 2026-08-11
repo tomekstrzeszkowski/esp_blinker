@@ -1,3 +1,4 @@
+![PCB](relative%20blinker/blinker.png?raw=true "PCB")
 # PIN out
 
 ## 4 Socket PINs (J1)
@@ -27,7 +28,7 @@ Enter into flashing mode
 
 At this point you should see percentage progress and LED should flash in some intervals
 
-## esptool flashing - alternative (didn't test)
+## esptool flashing - alternative
 
  - Install esptool in python env
  - When you build project, firmware can be found in:
@@ -36,11 +37,11 @@ blinker/.pio/build/esp12e/firmware.bin
 ```
  - Flash
 ```
-esptool.py --port COM3 write_flash 0x00000 firmware.bin
+esptool --port /dev/ttyUSB0 write-flash 0x00000 blinker/.pio/build/esp12e/firmware.bin
 ```
 
 For ESP32
 
 ```
-esptool.py --port COM3 --chip esp32 write_flash 0x10000 firmware.bin
+esptool --port /dev/ttyUSB0 --chip esp32 write-flash 0x10000 firmware.bin
 ```
