@@ -29,7 +29,8 @@ void Connectivity::setup() {
 void Connectivity::tick() {
     if (!mqtt.connected()) {
         static unsigned long lastAttempt = 0;
-        if (millis() - lastAttempt > 3000) {
+        const unsigned long RECONNECT_INTERVAL = 10UL * 60UL * 1000UL; // 10 minutes
+        if (millis() - lastAttempt >= RECONNECT_INTERVAL) {
             lastAttempt = millis();
             connectMqtt();
         }
