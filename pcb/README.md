@@ -1,4 +1,6 @@
-![PCB](relative%20blinker/blinker.png?raw=true "PCB")
+
+![Image](blinker/blinker.png)
+
 # PIN out
 
 ## 4 Socket PINs (J1)
