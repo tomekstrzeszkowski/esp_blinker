@@ -8,6 +8,9 @@ This project serves as a reminder to perform these exercises by toggling your ex
 
 # Hardware 
 
+
+![Image](pcb/blinker/blinker.png)
+
 ## Electrical components and flashing
  - ESP8266
 
