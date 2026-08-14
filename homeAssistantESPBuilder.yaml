@@ -70,6 +70,8 @@ script:
           else:
             - output.turn_off: blinker_debug_led
             - output.turn_off: blinker_light
+deep_sleep:
+  id: deep_sleep_mode
 
 # Eye Break Active: momentary trigger button
 button:
@@ -79,6 +81,12 @@ button:
     on_press:
       then:
         - script.execute: blink_eyes
+  - platform: template
+    name: "Go to Deep Sleep"
+    icon: "mdi:sleep"
+    on_press:
+      - logger.log: "Virtual button pressed. Going to sleep."
+      - deep_sleep.enter: deep_sleep_mode
 
 switch:
   # light script
