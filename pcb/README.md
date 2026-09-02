@@ -12,7 +12,7 @@
 
 ## 2 Socket PINs
 
-1, 2 GPIO0 - Boot up PINS (J2)
+1, 2 GPIO0 - Boot up PINS (J2), connect for entering flashing mode
 
 # Wiring ConnectionsUSB-to-UART 
 
@@ -24,8 +24,10 @@ Enter into flashing mode
  - GPIO0 - Connect to GND, just connect 1 with 2 togeter via jumper
 
 # Flashing
- - Enter flashing mode (blue LED should flash once)
- - Follow your preffered flashing IDE
+ - Connect UART to USB converter to J1, don't connect to USB yet
+ - Enter flashing mode, connect 2 PINs together using jumper in J2 socket
+ - Connect converter to USB, The blue LED should flicker once
+ - Follow your preferred flashing IDE
 
 ## VS Code and PlatformIO
 
