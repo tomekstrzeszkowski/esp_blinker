@@ -12,7 +12,13 @@ This project serves as a reminder to perform these exercises by toggling your ex
 ![Image](pcb/blinker/blinker.png)
 
 ## Electrical components and flashing
- - ESP8266
+
+Full details are available in pcb folder
+ - ESP8266 (ESP-12F)
+ - Relay
+ - SMD resistors
+ - Button switches
+ - Power supply
 
 [PCB & Flashing](pcb/README.md)
  
